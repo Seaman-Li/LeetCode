@@ -3,7 +3,9 @@ package Tree;
 
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Stack;
 
+//自定义二叉树类
 public class BinaryTree {
     public TreeNode root;
 
@@ -25,7 +27,10 @@ public class BinaryTree {
         }
     }
 
-    // 构造二叉树方法
+//    offer 方法功能：向队列的尾部添加一个元素。
+//    poll 方法功能：移除并返回队列头部的元素。
+//    peek 方法功能：返回队列头部的元素但不移除它。
+    // 构造二叉树方法，原理同层序遍历
     private TreeNode constructBinaryTree(Integer[] values) {
         Queue<TreeNode> queue = new LinkedList<>();
         TreeNode root = new TreeNode(values[0]);
@@ -50,7 +55,7 @@ public class BinaryTree {
         return root;
     }
 
-    // 前序遍历,dfs同理
+    // 前序遍历,dfs同理，输出顺序为根——左——右
     public void preorderTraversal(TreeNode root) {
         if (root != null) {
             System.out.print(root.val + " ");
@@ -58,8 +63,25 @@ public class BinaryTree {
             preorderTraversal(root.right);
         }
     }
+    // 前序遍历迭代法和中序遍历类似只是打印数据的位置不同
+    public void preorderTraversalIteration(TreeNode root) {
+        if(root == null) return;
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode currentNode = root;
+        while (currentNode != null || !stack.isEmpty()) {//循环终止条件：当前访问的节点为空且栈为空
+            while (currentNode != null) {
+                System.out.print(currentNode.val + " ");
+                stack.push(currentNode);     // 把当前节点和左子树节点入栈
+                currentNode = currentNode.left;  // 移至最左
+            }
+            //左子节点为空后再搜索当前节点的右子节点
+            currentNode = stack.pop();       // 左子树访问完毕，访问节点
+            currentNode = currentNode.right;     // 转向右子树
+        }
 
-    // 中序遍历
+    }
+
+    // 中序遍历：输出顺序为：左——根——右
     public void inorderTraversal(TreeNode root) {
         if (root != null) {
             inorderTraversal(root.left);
@@ -68,7 +90,25 @@ public class BinaryTree {
         }
     }
 
-    // 后序遍历
+    // 中序遍历迭代法
+    public void inorderTraversalIteration(TreeNode root){
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode currentNode = root;
+        while (currentNode != null || !stack.isEmpty()) {//循环终止条件：当前访问的节点为空且栈为空
+            //这里会先将遍历到的左子节点入栈
+            while (currentNode != null) {
+                stack.push(currentNode);     // 把当前节点和左子树节点入栈
+                currentNode = currentNode.left;  // 移至最左
+            }
+            //左子节点为空后先访问并输出当前节点再搜索当前节点的右子节点
+            currentNode = stack.pop();       // 左子树访问完毕，访问节点
+            System.out.print(currentNode.val + " ");
+            currentNode = currentNode.right;     // 转向右子树
+        }
+    }
+
+
+    // 后序遍历：输出顺序为左——右——根
     public void postorderTraversal(TreeNode root) {
         if (root != null) {
             postorderTraversal(root.left);
@@ -77,7 +117,35 @@ public class BinaryTree {
         }
     }
 
-    //   层序遍历，bfs同理
+    // 后序遍历迭代法
+    public void postorderTraversalIteration(TreeNode root){
+        if (root == null) return;
+
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode lastVisited = null; // 用于记录上一次访问过的节点
+        TreeNode currentNode = root;
+
+        while (!stack.isEmpty() || currentNode != null) {
+            //搜索左子树
+            while (currentNode != null) {
+                stack.push(currentNode); // 将节点推入栈
+                currentNode = currentNode.left; // 移动到左子树
+            }
+            //取出最后一个左子树叶子节点
+            currentNode = stack.pop();
+            //这里如果没有右子树节点或者右子树节点已经访问过了就输出当前节点
+            if(currentNode.right == null||currentNode.right == lastVisited){
+                System.out.print(currentNode.val + " ");
+                lastVisited = currentNode;
+                currentNode = null;
+            }else{
+                stack.push(currentNode);
+                currentNode = currentNode.right;
+            }
+        }
+    }
+
+    //   层序遍历，广度优先搜索bfs同理
     public void levelOrderTraversal(TreeNode root) {
         if (root == null) {
             return;

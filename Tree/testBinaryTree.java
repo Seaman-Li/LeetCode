@@ -9,10 +9,19 @@ public class testBinaryTree {
 
         System.out.println("Preorder traversal:");
         newTree.preorderTraversal(newTree.root);
+        System.out.println("\nPreorder traversal with Iteration:");
+        newTree.preorderTraversalIteration(newTree.root);
+
         System.out.println("\nInorder traversal:");
         newTree.inorderTraversal(newTree.root);
+        System.out.println("\nInorder traversal with Iteration:");
+        newTree.inorderTraversalIteration(newTree.root);
+
         System.out.println("\nPostorder traversal:");
         newTree.postorderTraversal(newTree.root);
+        System.out.println("\nPostorder traversal with Iteration:");
+        newTree.postorderTraversalIteration(newTree.root);
+
         System.out.println("\nlevelOrderTraversal traversal:");
         newTree.levelOrderTraversal(newTree.root);
     }
