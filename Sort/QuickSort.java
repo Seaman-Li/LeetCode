@@ -8,7 +8,7 @@ public class QuickSort {
     public static void quickSort(int[] arr, int low, int high) {
         if (low < high) {
             // partitionIndex 是排序后基准元素的正确位置
-            int partitionIndex = randomPartition(arr, low, high);
+            int partitionIndex = partition(arr, low, high);
 
             System.out.println("After partition around pivot index " + partitionIndex + ": " + Arrays.toString(arr)+"\n");
 
@@ -47,10 +47,8 @@ public class QuickSort {
             }
 
         }
-
         // 交换 arr[i+1] 和 arr[high] (或 pivot)使得pivot左边都是小于pivot，其右边都是大于pivot的元素
         swap(arr, i + 1, high);
-
         return i + 1;
     }
 
@@ -63,7 +61,7 @@ public class QuickSort {
 
     // 测试快速排序
     public static void main(String[] args) {
-        int[] arr = {11,9,3,4,0,6,7,1,5};
+        int[] arr = {5,9,3,4,0,6,7,1,11};
         int n = arr.length;
 
         System.out.println("Original array:");

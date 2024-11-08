@@ -19,7 +19,7 @@ public class LC345_ReverseVowels {
             while(left < right && !vowels.contains(String.valueOf(chars[left]))) {
                 left++;
             }
-
+//这里!vowels.contains(String.valueOf(chars[left])和vowels.indexOf(chars[right]) == -1等价
             while(left < right && vowels.indexOf(chars[right]) == -1){
                 right--;
             }
