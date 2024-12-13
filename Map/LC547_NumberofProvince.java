@@ -3,6 +3,7 @@ package Map;
 import java.util.Stack;
 
 public class LC547_NumberofProvince {
+//    在无向图中，一个连通分量是图中的一个最大连通子图。
     public int findCircleNum(int[][] isConnected) {
         boolean[] visited = new boolean[isConnected.length];
         int count = 0;
@@ -52,7 +53,7 @@ public class LC547_NumberofProvince {
 
     public static void main(String[] args) {
         LC547_NumberofProvince sol = new LC547_NumberofProvince();
-        int[][] isConnected = new int[][]{{1,1,0},{0,1,0},{0,0,1}};
+        int[][] isConnected = new int[][]{{1,1,0},{1,1,0},{0,0,1}};
         System.out.println(sol.findCircleNum(isConnected));
     }
 }

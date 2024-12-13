@@ -1,5 +1,8 @@
 package Sort;
 
+import java.util.Collections;
+import java.util.PriorityQueue;
+
 public class HeapSort {
     public void sort(int[] nums) {
         int n = nums.length;
@@ -51,6 +54,37 @@ public class HeapSort {
             heapify(nums, heapSize, largest);
         }
     }
+
+    public void Heapsort(int[] arr) {
+        //PriorityQueue 默认是一个最小堆
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+        for (int num : arr) {
+            minHeap.add(num);
+        }
+
+        int index = 0;
+        while (!minHeap.isEmpty()) {
+            arr[index++] = minHeap.poll();
+        }
+    }
+
+    public void HeapsortReverse(int[] arr) {
+        // 创建最大堆
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
+
+        // 将所有元素添加到最大堆中
+        for (int value : arr) {
+            maxHeap.add(value);
+        }
+
+        // 从最大堆中依次取出所有元素
+        int index = 0;
+        while (!maxHeap.isEmpty()) {
+            arr[index++] = maxHeap.poll();
+        }
+    }
+
+
 
     public static void main(String[] args) {
         int[] arr = {0, 4, 5, 1, 3, 2};

@@ -45,5 +45,10 @@ public class String_functions {
         System.out.println("a.substring "+a.substring(1, 3));
         String e = "       abc1 2 3 4 5      ";
         System.out.println(e+ "e.trim() "+e.trim());
+
+        String f = "abc123aaa222";
+        System.out.println("a.replace " + a.replace("1","ccc"));
+        System.out.println("f.replaceAll " + f.replaceAll("\\d+","ccc"));
+        System.out.println("f.replaceFirst " + f.replaceFirst("\\d+","ccc"));
     }
 }
