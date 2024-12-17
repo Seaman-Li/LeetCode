@@ -9,10 +9,13 @@ public class LC215_FindKthLargest {
 
         for (int num : nums) {
             heap.add(num);
+            System.out.println(heap);
 //            if (heap.size() > k) {
 //                heap.poll(); // 维持堆的大小为 k
 //            }
         }
+
+        System.out.println("final heap"+heap);
 
         for (int i = 0; i < nums.length-k; i++) {
             heap.poll();
