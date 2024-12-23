@@ -15,6 +15,7 @@ public class LC304_NumMatrix {
 
 
 //        直接加上当前元素的值：matrix[i-1][j-1] 表示矩阵中第 i 行、第 j 列的元素值。
+//        prefixSum[i][j] 表示从矩阵左上角 (1,1) 到 (i,j) 的子矩阵的和。
 //        加上上方和左侧的前缀和：
 //        prefixSum[i-1][j] 表示从 (0,0) 到 (i-2,j-1) 的子矩阵和，覆盖了当前元素上方的区域。
 //        prefixSum[i][j-1] 表示从 (0,0) 到 (i-1,j-2) 的子矩阵和，覆盖了当前元素左侧的区域。
@@ -22,7 +23,7 @@ public class LC304_NumMatrix {
 
         for(int i = 1; i <= m; i++){
             for(int j = 1; j <= n; j++){
-                prefixSum[i][j]=matrix[i - 1][j - 1] + prefixSum[i - 1][j] + prefixSum[i][j - 1] - prefixSum[i - 1][j - 1];
+                prefixSum[i][j] = matrix[i - 1][j - 1] + prefixSum[i - 1][j] + prefixSum[i][j - 1] - prefixSum[i - 1][j - 1];
             }
         }
 
@@ -32,11 +33,6 @@ public class LC304_NumMatrix {
         System.out.println("\n");
     }
 
-//    计算子矩阵和
-//    查询逻辑需要额外检查边界条件：
-//    如果 row1 > 0，减去上方矩形区域。
-//    如果 col1 > 0，减去左侧矩形区域。
-//    如果 row1 > 0 && col1 > 0，加回左上角的重叠区域。
     public int sumRegion(int row1, int col1, int row2, int col2) {
         return prefixSum[row2 + 1][col2 + 1] -
                 prefixSum[row2 + 1][col1] -
