@@ -35,17 +35,14 @@ public class QuickSort {
         int pivot = arr[high];
         System.out.println("pivot " + pivot);
         int i = (low - 1); // 分区指示，i 起始值设置为 low - 1，这样第一次递增后 i 将指向 low 位置，即数组的开始位置。i 追踪的是最后一个已经放置在基准左侧的元素的位置。
-
         for (int j = low; j < high; j++) {
             // 如果当前元素小于或等于 pivot
             if (arr[j] <= pivot) {
                 i++;
                 // 交换 arr[i] 和 arr[j]
                 swap(arr, i, j);
-
                 System.out.println("交换步骤:第"+i+"位和第"+j+"位交换："+Arrays.toString(arr));
             }
-
         }
         // 交换 arr[i+1] 和 arr[high] (或 pivot)使得pivot左边都是小于pivot，其右边都是大于pivot的元素
         swap(arr, i + 1, high);
