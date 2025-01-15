@@ -18,7 +18,7 @@ public class LC017_LetterCombination {
             "wxyz"  // 9
     };
 
-    public List<String> letterCombinations(String digits) {
+    public static List<String> letterCombinations(String digits) {
         List<String> result = new ArrayList<>();
         if (digits == null || digits.length() == 0) {
             return result; // 如果输入为空，返回空列表
@@ -28,7 +28,7 @@ public class LC017_LetterCombination {
         return result;
     }
 
-    private void backtrack(List<String> result, StringBuilder combination, String digits, int index) {
+    private static void backtrack(List<String> result, StringBuilder combination, String digits, int index) {
         // 如果组合完成，加入结果
         if (index == digits.length()) {
             result.add(combination.toString());
@@ -45,6 +45,12 @@ public class LC017_LetterCombination {
             // 回溯，移除最后一个字母
             combination.deleteCharAt(combination.length() - 1);
         }
+    }
+
+    public static void main(String[] args) {
+        String digits = "123";
+        List<String> result = letterCombinations(digits);
+        System.out.println(result);
     }
 
 
