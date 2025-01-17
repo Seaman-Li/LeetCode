@@ -1,4 +1,4 @@
-package Map;
+package Map.DFS;
 
 public class LC200_NumOfIsland {
     public int numIslands(char[][] grid) {

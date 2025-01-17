@@ -48,7 +48,7 @@ public class LC017_LetterCombination {
     }
 
     public static void main(String[] args) {
-        String digits = "123";
+        String digits = "23";
         List<String> result = letterCombinations(digits);
         System.out.println(result);
     }

@@ -1,4 +1,4 @@
-package Map;
+package Map.DFS;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

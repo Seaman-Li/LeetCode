@@ -1,4 +1,14 @@
-package Map;
+package Map.DFS;
+
+//深度优先搜索（DFS）
+//定义：
+//深度优先搜索是一种图的遍历方法，它优先沿着一条路径深入到尽可能深的节点，然后再回溯到上一个节点并探索其他路径。
+//特点：
+//遍历目标：DFS 通常用于遍历所有节点，或者找到某种特定的路径/结构。
+//数据结构：使用递归或显式栈来实现。
+//适用场景：
+//图或树的遍历。
+//找到特定路径、连通分量、拓扑排序等。
 
 public class LC130_SurroundedRegions {
     public static void solve(char[][] board) {
