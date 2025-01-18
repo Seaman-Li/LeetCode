@@ -7,9 +7,7 @@ package Map.Backtracking;
 //递归与撤销操作：
 //类似于 DFS 的递归，但回溯法有明确的“撤销”操作，返回上一步状态以尝试其他选择。
 //适用场景：
-//全排列问题。
-//组合问题。
-//分割问题（如本题的 IP 地址恢复）。
+//全排列问题。组合问题。分割问题（如本题的 IP 地址恢复）。
 
 import java.util.ArrayList;
 import java.util.List;
