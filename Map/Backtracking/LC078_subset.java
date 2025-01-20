@@ -6,7 +6,7 @@ import java.util.List;
 
 public class LC078_subset {
 
-    List<List<Integer>> res = new LinkedList<>();
+    List<List<Integer>> res = new ArrayList<>();
     LinkedList<Integer> track = new LinkedList<>();// 记录回溯算法的递归路径
 
     public List<List<Integer>> subsets(int[] nums) {
