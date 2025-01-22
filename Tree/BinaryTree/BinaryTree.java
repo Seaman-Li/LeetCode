@@ -18,6 +18,12 @@ public class BinaryTree {
             val = x;
         }
     }
+
+    // 无参构造函数，创建一个空的二叉树
+    public BinaryTree() {
+        this.root = null;
+    }
+
     // 构造二叉树方法
     public BinaryTree(Integer[] values) {
         if (values == null || values.length == 0 || values[0] == null) {
@@ -164,6 +170,30 @@ public class BinaryTree {
             if (currentNode.right != null) {
                 queue.offer(currentNode.right);
             }
+        }
+    }
+    public void levelOrderTraversalWithNull(TreeNode root) {
+        if (root == null) {
+            System.out.println("null");
+            return;
+        }
+
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+
+        while (!queue.isEmpty()) {
+            TreeNode currentNode = queue.poll();
+
+            if (currentNode == null) {
+                // 如果当前节点为 null，输出 null 并继续
+                System.out.print("null ");
+                continue;
+            }
+            // 输出当前节点的值
+            System.out.print(currentNode.val + " ");
+            // 将当前节点的左右子节点加入队列
+            queue.offer(currentNode.left);
+            queue.offer(currentNode.right);
         }
     }
 
