@@ -24,6 +24,11 @@ public class BinaryTree {
         this.root = null;
     }
 
+    //用根节点创建一个二叉树
+    public BinaryTree(TreeNode root) {
+        this.root = root;
+    }
+
     // 构造二叉树方法
     public BinaryTree(Integer[] values) {
         if (values == null || values.length == 0 || values[0] == null) {
