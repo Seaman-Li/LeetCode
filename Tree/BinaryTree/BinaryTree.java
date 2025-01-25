@@ -10,11 +10,11 @@ public class BinaryTree {
     public TreeNode root;
 
     public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
+        public int val;
+        public TreeNode left;
+        public TreeNode right;
 
-        TreeNode(int x) {
+        public TreeNode(int x) {
             val = x;
         }
     }
@@ -42,7 +42,7 @@ public class BinaryTree {
 //    poll 方法功能：移除并返回队列头部的元素。
 //    peek 方法功能：返回队列头部的元素但不移除它。
     // 构造二叉树方法，原理同层序遍历
-    private TreeNode constructBinaryTree(Integer[] values) {
+    public TreeNode constructBinaryTree(Integer[] values) {
         Queue<TreeNode> queue = new LinkedList<>();
         TreeNode root = new TreeNode(values[0]);
         queue.offer(root);

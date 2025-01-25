@@ -1,4 +1,6 @@
-package Tree.BinaryTree;
+package Tree.ConstructTree;
+
+import Tree.BinaryTree.BinaryTree;
 
 import java.util.HashMap;
 //遍历特性
