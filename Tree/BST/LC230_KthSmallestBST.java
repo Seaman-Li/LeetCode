@@ -25,7 +25,6 @@ public class LC230_KthSmallestBST {
         traverse(root.right,k);
     }
 
-
     public static void main(String[] args) {
         Integer[] nums = {3,1,4,null,2};
         BinaryTree bt = new BinaryTree(nums);

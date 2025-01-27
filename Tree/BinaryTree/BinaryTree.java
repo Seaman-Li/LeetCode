@@ -34,7 +34,7 @@ public class BinaryTree {
         if (values == null || values.length == 0 || values[0] == null) {
             this.root = null;
         } else {
-            this.root = constructBinaryTree(values);
+            this.root = buildTreeLevelOrderRecursive(values,0);
         }
     }
 
@@ -43,28 +43,47 @@ public class BinaryTree {
 //    peek 方法功能：返回队列头部的元素但不移除它。
     // 构造二叉树方法，原理同层序遍历
     public TreeNode constructBinaryTree(Integer[] values) {
-        Queue<TreeNode> queue = new LinkedList<>();
-        TreeNode root = new TreeNode(values[0]);
-        queue.offer(root);
-        int i = 1;
+        Queue<TreeNode> queue = new LinkedList<>(); // 初始化队列，用于管理当前层节点
+        TreeNode root = new TreeNode(values[0]);    // 创建根节点
+        queue.offer(root);                          // 将根节点加入队列
+        int i = 1;                                  // 用于遍历数组的指针
 
-        while (!queue.isEmpty() && i < values.length) {
-            TreeNode current = queue.poll();
+        while (!queue.isEmpty() && i < values.length) { // 当队列非空且未处理完数组时循环
+            TreeNode current = queue.poll(); // 从队列中取出当前父节点
 
+            // 创建左子节点并加入队列
             if (i < values.length && values[i] != null) {
                 current.left = new TreeNode(values[i]);
-                queue.offer(current.left);
+                queue.offer(current.left); // 将左子节点加入队列
             }
             i++;
 
+            // 创建右子节点并加入队列
             if (i < values.length && values[i] != null) {
                 current.right = new TreeNode(values[i]);
-                queue.offer(current.right);
+                queue.offer(current.right); // 将右子节点加入队列
             }
             i++;
         }
         return root;
     }
+
+    private TreeNode buildTreeLevelOrderRecursive(Integer[] values, int index) {
+        // 边界条件：索引越界或当前值为 null
+        if (index >= values.length || values[index] == null) {
+            return null;
+        }
+
+        // 创建当前节点
+        TreeNode root = new TreeNode(values[index]);
+
+        // 递归构造左子树和右子树
+        root.left = buildTreeLevelOrderRecursive(values, 2 * index + 1);
+        root.right = buildTreeLevelOrderRecursive(values, 2 * index + 2);
+
+        return root;
+    }
+
 
     // 前序遍历,dfs同理，输出顺序为根——左——右
     public void preorderTraversal(TreeNode root) {
@@ -89,7 +108,6 @@ public class BinaryTree {
             currentNode = stack.pop();       // 左子树访问完毕，访问节点
             currentNode = currentNode.right;     // 转向右子树
         }
-
     }
 
     // 中序遍历：输出顺序为：左——根——右
