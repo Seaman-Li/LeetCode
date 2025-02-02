@@ -85,7 +85,7 @@ public class BinaryTree {
     }
 
 
-    // 前序遍历,dfs同理，输出顺序为根——左——右
+    // 前序遍历，输出顺序为根——左——右
     public void preorderTraversal(TreeNode root) {
         if (root != null) {
             System.out.print(root.val + " ");
