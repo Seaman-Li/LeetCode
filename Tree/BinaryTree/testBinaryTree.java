@@ -24,5 +24,9 @@ public class testBinaryTree {
 
         System.out.println("\nlevelOrderTraversal traversal:");
         newTree.levelOrderTraversal(newTree.root);
+        System.out.println("\nlevelOrderTraversalWithNull:");
+        newTree.levelOrderTraversalWithNull(newTree.root);
+        System.out.println("\nlevelOrderTraverseWithDepth:");
+        newTree.levelOrderTraverseWithDepth(newTree.root);
     }
 }

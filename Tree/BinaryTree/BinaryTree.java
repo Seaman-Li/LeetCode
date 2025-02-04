@@ -136,7 +136,6 @@ public class BinaryTree {
         }
     }
 
-
     // 后序遍历：输出顺序为左——右——根
     public void postorderTraversal(TreeNode root) {
         if (root != null) {
@@ -195,6 +194,7 @@ public class BinaryTree {
             }
         }
     }
+
     public void levelOrderTraversalWithNull(TreeNode root) {
         if (root == null) {
             System.out.println("null");
@@ -218,6 +218,35 @@ public class BinaryTree {
             queue.offer(currentNode.left);
             queue.offer(currentNode.right);
         }
+    }
+
+    public void levelOrderTraverseWithDepth(TreeNode root){
+        if (root == null) {
+            System.out.println("null");
+            return;
+        }
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+        int depth = 1;
+        while (!queue.isEmpty()) {
+            int sz = queue.size();
+            System.out.print("depth = " + depth + ": ");
+            for (int i = 0; i < sz; i++) {
+                TreeNode currentNode = queue.poll();
+                if (currentNode == null) {
+                    // 如果当前节点为 null，输出 null 并继续
+                    System.out.print("null ");
+                    continue;
+                }
+                System.out.print(currentNode.val + " ");
+                // 将当前节点的左右子节点加入队列
+                queue.offer(currentNode.left);
+                queue.offer(currentNode.right);
+            }
+            System.out.println();
+            depth++;
+        }
+
     }
 
 
