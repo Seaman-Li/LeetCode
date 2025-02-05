@@ -2,7 +2,7 @@ package Array;
 
 import java.util.*;
 
-public class AverageScoreofString {
+public class AverageScoreOfString {
 
     // 定义选手类来存储选手编号及其最终评分和字母
     class Player {
@@ -18,7 +18,7 @@ public class AverageScoreofString {
     }
 
     public static void main(String[] args) {
-        AverageScoreofString main = new AverageScoreofString();  // 创建外部类实例
+        AverageScoreOfString main = new AverageScoreOfString();  // 创建外部类实例
         Scanner sc = new Scanner(System.in);
 
         // 输入评委数量和选手数量

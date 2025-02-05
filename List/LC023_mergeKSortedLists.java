@@ -9,14 +9,14 @@ public class LC023_mergeKSortedLists {
     public ListNode mergeKLists(ListNode[] lists) {
         if (lists.length == 0) return null;
 
-        ListNode dummy = new ListNode(-1);
+        ListNode dummy = new ListNode(-1);// 虚拟头结点
         ListNode tail = dummy;
 
         //(a, b) -> a.val - b.val：比较两个 ListNode 的值，按 升序排序。即 val 小的 ListNode 先出队。
-        PriorityQueue<ListNode> pq = new PriorityQueue<>(
+        PriorityQueue<ListNode> pq = new PriorityQueue<>(// 优先级队列，最小堆
                 lists.length, (a, b) -> a.val - b.val
         );
-
+        // 将 k 个链表的头结点加入最小堆
         for(ListNode head : lists){
             if(head != null){
                 pq.add(head);
