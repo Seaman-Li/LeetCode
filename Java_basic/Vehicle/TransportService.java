@@ -1,4 +1,4 @@
-package Java_basic;
+package Java_basic.Vehicle;
 
 //依赖注入和接口
 //接口是实现依赖注入（DI）的理想选择。使用接口作为依赖的引用，可以在运行时动态地提供具体的实现，增加了代码的模块化和灵活性。

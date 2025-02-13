@@ -1,4 +1,4 @@
-package Java_basic;
+package Java_basic.Vehicle;
 
 public class TestVehicle {
     public static void main(String[] args) {

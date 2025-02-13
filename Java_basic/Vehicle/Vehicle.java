@@ -1,4 +1,4 @@
-package Java_basic;
+package Java_basic.Vehicle;
 
 //接口（Interface）
 //接口是一种完全抽象的类，它只能包含抽象方法和常量字段（在 Java 8 之后，接口可以包含默认方法和静态方法）。接口是定义一组方法规范，强制实现类遵循这些规范。

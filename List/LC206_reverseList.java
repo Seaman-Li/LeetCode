@@ -28,7 +28,7 @@ public class LC206_reverseList {
 
     public static void main(String[] args) {
         ListNode l1 = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4))));
-        ListNode result =  reverseListRecursive(l1);
+        ListNode result =  reverseList(l1);
         while(result != null) {
             System.out.print(result.val + " ");
             result = result.next;

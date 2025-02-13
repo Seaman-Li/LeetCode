@@ -7,7 +7,8 @@ public class LC283_moveZeroes {
         if(nums == null || nums.length == 0) return;
         int j = 0;
         for (int i = 0; i < nums.length; i++) { // 先把所有非0的数移到前一个0的位置
-            if(nums[i] != 0) nums[j++] = nums[i];
+            if(nums[i] != 0)
+                nums[j++] = nums[i];
         }
         for (int i = j; i < nums.length; i++) { // 后面几位全部赋值为0
             nums[i] = 0;

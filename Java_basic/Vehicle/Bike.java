@@ -1,4 +1,4 @@
-package Java_basic;
+package Java_basic.Vehicle;
 //Vehicle vehicle; 声明：这里，vehicle 是一个类型为 Vehicle 的引用变量。在运行时，这个变量可以引用任何 Vehicle 的实现，无论是 Car、Bike 或其他任何实现了 Vehicle 接口的类。
 //依赖注入：在 TransportService 的构造器中，我们传递一个 Vehicle 类型的对象。这样，TransportService 就不需要知道具体的车辆类型，只需要知道它可以启动和停止，并且可以获取速度。这种方式大大增强了代码的灵活性和可扩展性。
 public class Bike implements Vehicle {

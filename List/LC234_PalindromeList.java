@@ -14,7 +14,8 @@ public class LC234_PalindromeList {
             fast = fast.next.next;
         }
         // 如果链表长度是奇数(此时中间元素不影响回文)，移动慢指针一步，跳过中间元素
-        if(fast!=null) slow = slow.next;
+        if(fast!=null)
+            slow = slow.next;
         // 反转链表的后半部分
         slow = LC206_reverseList.reverseList(slow);
         fast = head;
