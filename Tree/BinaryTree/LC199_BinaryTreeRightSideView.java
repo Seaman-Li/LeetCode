@@ -24,7 +24,7 @@ public class LC199_BinaryTreeRightSideView {
 
             for (int i = 0; i<sz;i++){
                 BinaryTree.TreeNode cur = queue.poll();
-                rightmost = cur;
+                rightmost = cur; //rightmost will be the last element when the iteration ends
                 // Add left and right children to queue
                 if (cur.left != null) queue.offer(cur.left);
                 if (cur.right != null) queue.offer(cur.right);
