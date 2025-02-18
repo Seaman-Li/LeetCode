@@ -1,4 +1,4 @@
-package Tree.BinaryTree;
+package Tree.BinaryTree.Levelorder;
 
 class Node {
     public int val;
@@ -105,7 +105,7 @@ class solution {
         root.right.left = new Node(6);
         root.right.right = new Node(7);
 
-        System.out.println(sol.connect(root));
+        System.out.println(sol.connect0(root));
         sol.printNext(root);
     }
 }
