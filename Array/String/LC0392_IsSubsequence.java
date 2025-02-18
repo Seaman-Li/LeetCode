@@ -1,10 +1,10 @@
 package Array.String;
 
-public class LC_392_IsSubsequence {
+public class LC0392_IsSubsequence {
     public static void main(String[] args) {
         String s = "abc";
         String t = "ahcgdb";
-        LC_392_IsSubsequence sol = new LC_392_IsSubsequence();
+        LC0392_IsSubsequence sol = new LC0392_IsSubsequence();
         System.out.println(sol.isSubsequence(s, t));
     }
 

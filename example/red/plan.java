@@ -1,4 +1,4 @@
-package red;
+package example.red;
 
 import java.util.Scanner;
 
