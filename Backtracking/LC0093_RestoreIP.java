@@ -1,4 +1,4 @@
-package Map.Backtracking;
+package Backtracking;
 
 //回溯法
 //定义：回溯法是一种试探性算法，尝试所有可能的解，探索解空间的每一种情况。如果某种尝试无法得到有效结果，则回溯到上一步，继续尝试其他可能。

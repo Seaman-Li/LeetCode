@@ -1,4 +1,4 @@
-package Map.Backtracking;
+package Backtracking;
 
 import java.util.Arrays;
 import java.util.LinkedList;
