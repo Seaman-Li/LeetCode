@@ -1,4 +1,4 @@
-package Array.SlidingWindow;
+package Array.TwoPointers.SlidingWindow;
 
 public class LC0209_MinSubarraySum {
 
