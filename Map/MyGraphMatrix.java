@@ -1,11 +1,11 @@
 package Map;
 import java.util.*;
 
-public class GraphMatrix {
+public class MyGraphMatrix {
     private int[][] adjmatrix;
     private int numVertices;
 
-    public GraphMatrix(int numVertices) {
+    public MyGraphMatrix(int numVertices) {
         this.numVertices = numVertices;
         adjmatrix = new int[numVertices][numVertices];
     }
@@ -26,7 +26,7 @@ public class GraphMatrix {
     // 深度优先搜索（递归）
     public void dfsRecursive(int start) {
         boolean[] visited = new boolean[numVertices];
-        System.out.println("DFS Recursive " + start);
+        System.out.println("DFS DP.Recursive " + start);
         dfsRecursiveHelper(start, visited);
         System.out.println();
     }
@@ -87,7 +87,7 @@ public class GraphMatrix {
     }
 
     public static void main(String[] args) {
-        GraphMatrix graph = new GraphMatrix(7);
+        MyGraphMatrix graph = new MyGraphMatrix(7);
         // 构建图
         graph.addEdge(0, 1);
         graph.addEdge(0, 2);
