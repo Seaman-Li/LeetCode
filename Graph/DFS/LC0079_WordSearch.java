@@ -1,4 +1,4 @@
-package Map.DFS;
+package Graph.DFS;
 
 public class LC0079_WordSearch {
 

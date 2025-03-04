@@ -1,4 +1,4 @@
-package Map.Bipartite;
+package Graph.Bipartite;
 
 import java.util.LinkedList;
 import java.util.Queue;

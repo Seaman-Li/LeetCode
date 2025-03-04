@@ -1,4 +1,4 @@
-package Map;
+package Graph;
 import java.util.*;
 
 public class MyGraphMatrix {

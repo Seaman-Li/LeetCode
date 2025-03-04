@@ -1,6 +1,5 @@
-package Map.Bipartite;
+package Graph.Bipartite;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 

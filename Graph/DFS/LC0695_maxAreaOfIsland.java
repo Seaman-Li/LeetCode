@@ -1,4 +1,4 @@
-package Map.DFS;
+package Graph.DFS;
 
 import java.util.LinkedList;
 import java.util.Queue;

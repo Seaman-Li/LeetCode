@@ -1,4 +1,4 @@
-package Map.DFS;
+package Graph.DFS;
 
 import java.util.Stack;
 

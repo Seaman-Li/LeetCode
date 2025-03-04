@@ -1,4 +1,4 @@
-package Map.Matrix;
+package Graph.Matrix;
 
 public class LC0289_GameOfLife {
     public void gameOfLife(int[][] board) {

@@ -1,4 +1,4 @@
-package Map.Matrix;
+package Graph.Matrix;
 
 import java.util.HashSet;
 
