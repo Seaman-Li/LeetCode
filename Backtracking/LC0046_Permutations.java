@@ -18,7 +18,7 @@ public class LC0046_Permutations {
 
     void backtrack(int[] nums) {
 
-        if(track.size() == nums.length) {
+        if(track.size() == nums.length) {// base case，到达叶子节点
             res.add(new LinkedList<>(track));
             return ;
         }
@@ -26,10 +26,11 @@ public class LC0046_Permutations {
         for(int i = 0; i < nums.length; i++) {
             if(used[i])
                 continue;
+            // 做选择
             used[i] = true;
             track.addLast(nums[i]);
-            backtrack(nums);
-            track.removeLast();
+            backtrack(nums);// 进入下一层回溯树
+            track.removeLast();// 取消选择
             used[i] = false;
         }
     }

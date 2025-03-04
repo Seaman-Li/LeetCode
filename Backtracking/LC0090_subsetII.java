@@ -10,7 +10,7 @@ public class LC0090_subsetII {
     LinkedList<Integer> track = new LinkedList<>();
 
     public List<List<Integer>> subsetsWithDup(int[] nums) {
-        Arrays.sort(nums);
+        Arrays.sort(nums);// 先排序，让相同的元素靠在一起
         backtrack(nums, 0);
         return res;
     }

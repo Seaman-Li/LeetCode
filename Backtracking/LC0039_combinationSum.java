@@ -1,17 +1,17 @@
 package Backtracking;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Arrays;
 
-public class LC0040_combinationSumII {
+public class LC0039_combinationSum {
 
     List<List<Integer>> res = new ArrayList<>();
     LinkedList<Integer> track = new LinkedList<>();// 记录回溯的路径
     int trackSum = 0;    // 记录 track 中的元素之和
 
-    public List<List<Integer>> combinationSum2(int[] candidates, int target) {
+    public List<List<Integer>> combinationSum(int[] candidates, int target) {
         if (candidates.length == 0) {
             return res;
         }
@@ -32,23 +32,20 @@ public class LC0040_combinationSumII {
         if(trackSum > target) return;
 
         for(int i = start; i < nums.length; i++) {
-            // 剪枝逻辑，值相同的树枝，只遍历第一条
-            if(i > start && nums[i] == nums[i-1]) continue;
             // 做选择
             track.add(nums[i]);
             trackSum += nums[i];
             // 递归遍历下一层回溯树
-            backtrack(nums, i + 1, target);
+            backtrack(nums, i, target);
             // 撤销选择
             track.removeLast();
             trackSum -= nums[i];
         }
     }
 
-    public static void main(String[] args) {
-        LC0040_combinationSumII solution = new LC0040_combinationSumII();
-        int[] nums = {10,1,2,7,6,1,5};
-        System.out.println(solution.combinationSum2(nums, 8));
-    }
 
+    public static void main(String[] args) {
+        LC0039_combinationSum sol = new LC0039_combinationSum();
+        System.out.println(sol.combinationSum(new int[]{2,3,6,7}, 7));
+    }
 }
