@@ -23,9 +23,16 @@ public class myHashMap<K, V> {
         }
     }
 
+//    private int getBucketIndex(K key) {
+//        return (key.hashCode() & 0x7FFFFFFF) % buckets.length;
+//    }
+
+
     private int getBucketIndex(K key) {
-        return (key.hashCode() & 0x7FFFFFFF) % buckets.length;
+        int hash = key.hashCode();
+        return (hash % buckets.length + buckets.length) % buckets.length;
     }
+
 
     public void put(K key, V value) {
         int index = getBucketIndex(key);
@@ -89,7 +96,7 @@ public class myHashMap<K, V> {
             System.out.print("Bucket " + i + ": ");
             if (buckets[i] != null) {
                 for (Entry<K, V> entry : buckets[i]) {
-                    System.out.print("[" + entry.key + "=" + entry.value + "] ");
+                    System.out.print("[" + entry.key + "，" + entry.value + "] ");
                 }
             }
             System.out.println();
@@ -102,8 +109,10 @@ public class myHashMap<K, V> {
         map.put("Banana", 20);
         map.put("Orange", 30);
         System.out.println("Value of Apple: " + map.get("Apple"));
+
+        map.put("Apple", 50);
         System.out.println("Contains key 'Banana': " + map.containsKey("Banana"));
-        map.remove("Banana");
+//        map.remove("Banana");
         System.out.println("Contains key 'Banana' after removal: " + map.containsKey("Banana"));
         System.out.println("Map Size: " + map.size());
         map.printMap();
