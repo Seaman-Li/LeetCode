@@ -1,7 +1,14 @@
 package Hashmap;
 
 import java.util.LinkedList;
-
+//Why Use LinkedList<Entry<K, V>>[] buckets; to Handle Hash Collisions?
+//Problem: Hash Collisions
+//A HashMap uses a hash function to map keys to an array index (bucket).
+//Different keys may hash to the same bucket index (this is called a collision).
+//Example: If hash("Apple") % 10 = 2 and hash("Orange") % 10 = 2, both "Apple" and "Orange" will go into bucket index 2.
+//Solution: Using a Linked List in Each Bucket
+//Instead of storing only one value per bucket, we store a linked list of key-value pairs (Entry<K, V>) in each bucket.
+//If two keys collide (i.e., map to the same index), we chain them together in a linked list.
 public class myHashMap<K, V> {
     private static final int INITIAL_CAPACITY = 16;
     private static final double LOAD_FACTOR = 0.75;
@@ -27,10 +34,16 @@ public class myHashMap<K, V> {
 //        return (key.hashCode() & 0x7FFFFFFF) % buckets.length;
 //    }
 
-
+//Even though different keys have different hash codes, they can still map to the same bucket index due to hash collisions.
+//How Does This Happen?
+//    The hash code (hashCode()) of an object is not necessarily unique.
+//    Java's hashCode() function returns an integer (int), but the number of buckets is usually much smaller.
+//    When we compute the bucket index, we take the modulus (%) of the hashCode() with the bucket array length.
+//    If two different hash codes produce the same remainder after the modulus operation, they collide in the same bucket.
     private int getBucketIndex(K key) {
+
         int hash = key.hashCode();
-        return (hash % buckets.length + buckets.length) % buckets.length;
+        return (hash % buckets.length + buckets.length) % buckets.length;//use this to handle negative hash codes (remainder)
     }
 
 
