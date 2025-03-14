@@ -2,6 +2,8 @@ package LinkedList;
 
 import java.util.PriorityQueue;
 
+import static LinkedList.ListNode.printList;
+
 public class LC0023_mergeKSortedLists {
 
 //    合并 k 个有序链表的逻辑类似合并两个有序链表，难点在于，如何快速得到 k 个节点中的最小节点，接到结果链表上？
@@ -55,6 +57,38 @@ public class LC0023_mergeKSortedLists {
         return dummy.next;
     }
 
+    public ListNode mergeKLists3(ListNode[] lists) {
+        return  merge(lists, 0, lists.length - 1);
+    }
+
+    public static ListNode merge(ListNode[] lists, int start, int end) {
+
+        if(start == end)
+            return lists[start];
+        int mid = start + (end - start) / 2;
+        ListNode l1 = merge(lists, start, mid);
+        ListNode l2 = merge(lists, mid + 1, end);
+        return mergeProcess(l1, l2);
+    }
+
+    public static ListNode mergeProcess(ListNode l1, ListNode l2) {
+
+        ListNode temp = new ListNode(0);
+        ListNode tail = temp;
+        while(l1 != null && l2 != null) {
+            if(l1.val < l2.val) {
+                tail.next = l1;
+                l1 = l1.next;
+            }else{
+                tail.next = l2;
+                l2 = l2.next;
+            }
+            tail = tail.next;
+        }
+        tail.next = l1 == null ? l2 : l1;
+        return temp.next;
+    }
+
 
     public static void main(String[] args) {
         LC0023_mergeKSortedLists sol = new LC0023_mergeKSortedLists();
@@ -63,10 +97,7 @@ public class LC0023_mergeKSortedLists {
         ListNode l3 = new ListNode(2, new ListNode(6));
         ListNode[] lists = new ListNode[]{l1, l2, l3};
         ListNode result = sol.mergeKLists2(lists);
-        while(result != null){
-            System.out.print(result.val + " ");
-            result = result.next;
-        }
+        printList(result);
     }
 
 }
