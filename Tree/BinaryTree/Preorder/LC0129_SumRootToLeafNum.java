@@ -16,6 +16,9 @@ import Tree.BinaryTree.BinaryTree;
 //Therefore, sum = 12 + 13 = 25.
 
 public class LC0129_SumRootToLeafNum {
+
+
+    //Use preorder traversal, build the number as you go, and add it to the total at the leaf.
     public int sumNumbers(BinaryTree.TreeNode root) {
         return preorder(root, 0);
     }

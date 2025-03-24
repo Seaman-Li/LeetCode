@@ -10,10 +10,10 @@ package LinkedList;
             this.val = val;
         } // 构造函数初始化节点值
 
-        ListNode(int val, ListNode next) {
+        ListNode(int val, ListNode next) {// 构造函数初始化节点值和下一个节点
             this.val = val;
             this.next = next;
-        } // 构造函数初始化节点值和下一个节点
+        }
 
         public static void printList(ListNode head){
             while(head != null){
