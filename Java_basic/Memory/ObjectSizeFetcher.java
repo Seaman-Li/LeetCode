@@ -33,6 +33,6 @@ public class ObjectSizeFetcher {
 //which the JVM uses to store metadata about the object instance,
 //such as the runtime type information and garbage collection information. In most JVMs,
 //especially those based on the HotSpot JVM from Oracle,
-//the object header typically consumes 12 to 16 bytes on a 32-bit JVM and 16 to 24 bytes on a 64-bit JVM.
+//the object header typically consumes 12 to 16 bytes on a 32-Java_basic.MultiThread.bit JVM and 16 to 24 bytes on a 64-Java_basic.MultiThread.bit JVM.
 //This size can increase if the object is used in a synchronized context (i.e., if a lock is acquired on the object),
 //as additional space may be needed to store lock information.
